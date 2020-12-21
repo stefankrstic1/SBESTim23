@@ -7,7 +7,7 @@ using Common;
 
 namespace CredentialsStore
 {
-    class AccountManagement : IAccountManagement
+    public class AccountManagement : IAccountManagement
     {
         public void CreateAccount(string username, string password)
         {
