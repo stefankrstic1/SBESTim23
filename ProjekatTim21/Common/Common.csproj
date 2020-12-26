@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum.cs" />
     <Compile Include="IAccountManagement.cs" />
     <Compile Include="IAuthenticationService.cs" />
+    <Compile Include="PomocneFunkcije.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

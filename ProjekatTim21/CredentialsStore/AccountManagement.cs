@@ -11,7 +11,10 @@ namespace CredentialsStore
     {
         public void CreateAccount(string username, string password)
         {
-            throw new NotImplementedException();
+            var key = "b14ca5898a4e4133bbce2ea2315a1916";
+            var enkriptovanaSifra = PomocneFunkcije.EncryptString(key, password);
+            var titula = Common.Enum.Titula.KLIJENT;
+            PomocneFunkcije.Write(username, enkriptovanaSifra, titula.ToString());
         }
 
         public bool DeleteAccount(string username)

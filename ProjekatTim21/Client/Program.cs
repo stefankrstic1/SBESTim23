@@ -10,6 +10,16 @@ namespace Client
     {
         static void Main(string[] args)
         {
+            //ADMIN: USER(srdjan), SIFRA(123)
+            string username;
+            string password;
+
+            Console.WriteLine("Unesi username:");
+            username = Console.ReadLine();
+            Console.WriteLine("Unesi password:");
+            password = Console.ReadLine();
+
+            
         }
     }
 }

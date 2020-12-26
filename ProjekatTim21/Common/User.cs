@@ -28,6 +28,7 @@ namespace Common
         {
             this.username = username;
             this.password = password;
+            
         }
 
         public User()

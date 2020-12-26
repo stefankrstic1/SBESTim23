@@ -1,0 +1,10 @@
+Titula: ADMIN
+Username: srdjan
+Password: bfcX++36cvYV3gXb8nuJdw==
+
+
+Titula: KLIJENT
+Username: kerovi
+Password: NoCjF7NUPL+Hy6rbVur3vA==
+
+
