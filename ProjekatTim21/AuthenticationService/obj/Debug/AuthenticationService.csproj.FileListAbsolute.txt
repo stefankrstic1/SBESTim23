@@ -1,0 +1,10 @@
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\bin\Debug\AuthenticationService.exe.config
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\bin\Debug\AuthenticationService.exe
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\bin\Debug\AuthenticationService.pdb
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\bin\Debug\Common.dll
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\bin\Debug\Common.pdb
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\obj\Debug\AuthenticationService.csprojAssemblyReference.cache
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\obj\Debug\AuthenticationService.csproj.CoreCompileInputs.cache
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\obj\Debug\AuthenticationService.csproj.CopyComplete
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\obj\Debug\AuthenticationService.exe
+E:\Fax\SBES\Projekat\ProjekatTim21\SBESTim23\ProjekatTim21\AuthenticationService\obj\Debug\AuthenticationService.pdb

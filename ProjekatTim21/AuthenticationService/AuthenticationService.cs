@@ -9,9 +9,18 @@ namespace AuthenticationService
 {
     public class AuthenticationService : IAuthenticationService
     {
+        public static Dictionary<string, string> UserAccountsDB = new Dictionary<string, string>();
+
         public void Login(string username, string password)
         {
-            throw new NotImplementedException();
+            if (!UserAccountsDB.ContainsKey(username))
+            {
+                UserAccountsDB.Add(username, username);
+            }
+            else
+            {
+                Console.WriteLine($"Korisnik sa korisnickim imenom {username} vec postoji u bazi");
+            }
         }
 
         public void Logout()

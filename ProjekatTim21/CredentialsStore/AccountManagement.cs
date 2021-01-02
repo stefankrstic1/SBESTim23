@@ -16,6 +16,10 @@ namespace CredentialsStore
             var titula = Common.Enum.Titula.KLIJENT;
             PomocneFunkcije.Write(username, enkriptovanaSifra, titula.ToString());
         }
+        public void TestCommunication()
+        {
+            Console.WriteLine("Communication established.");
+        }
 
         public bool DeleteAccount(string username)
         {

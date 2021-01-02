@@ -11,6 +11,9 @@ namespace Common
     public interface IAccountManagement
     {
         [OperationContract]
+        void TestCommunication();
+
+        [OperationContract]
         void CreateAccount(string username, string password);
 
         [OperationContract]
