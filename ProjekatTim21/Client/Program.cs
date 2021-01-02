@@ -16,7 +16,6 @@ namespace Client
             WindowsIdentity windowsIdentity = WindowsIdentity.GetCurrent();
 
             NetTcpBinding binding = new NetTcpBinding();
-            //string address = "net.tcp://localhost:1234/AuthenticationService";
 
             binding.Security.Mode = SecurityMode.Transport;
             binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Windows;
@@ -24,6 +23,7 @@ namespace Client
 
             Console.WriteLine("Korisnik koji je pokrenuo klijenta je : " + windowsIdentity.Name);
 
+            
 
             bool isAdmin = Common.PomocneFunkcije.CheckUserGroup(windowsIdentity);
             string address = "";
@@ -33,14 +33,13 @@ namespace Client
 
                 EndpointAddress endpointAddress = new EndpointAddress(new Uri(address),
                 EndpointIdentity.CreateUpnIdentity("wcfServer"));
-                Console.WriteLine("Here");
 
                 using (ClientProxy proxy = new ClientProxy(binding, endpointAddress))
                 {
-                    proxy.Login("majmun", "majmun");
-                    proxy.Login("majmun", "majmun");
+                    proxy.Login("ime", "sifra");
                     Console.ReadLine();
-                    proxy.Logout();
+                    proxy.Logout("ime");
+                    Console.ReadLine();
                 }
             }
             else
@@ -48,13 +47,9 @@ namespace Client
                 address = "net.tcp://localhost:1888/CredentialsStore";
                 EndpointAddress endpointAddress = new EndpointAddress(new Uri(address),
                 EndpointIdentity.CreateUpnIdentity("wcfServer"));
-                Console.WriteLine("Here CS");
                 using (ClientProxyCS proxy = new ClientProxyCS(binding, endpointAddress))
                 {
-                    //proxy.Login("majmun", "majmun");
-                    //proxy.Login("majmun", "majmun");
                     Console.ReadLine();
-                    //proxy.Logout();
                 }
             }
             

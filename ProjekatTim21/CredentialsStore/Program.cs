@@ -33,16 +33,14 @@ namespace CredentialsStore
 
 			Console.WriteLine("Servis za admina je pokrenut.");
 
-			Console.Read();
-
-			/*string srvCertCN = PomocneFunkcije.ParseName(WindowsIdentity.GetCurrent().Name);
+			string srvCertCN = PomocneFunkcije.ParseName(WindowsIdentity.GetCurrent().Name);
 
 			binding = new NetTcpBinding();
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
 
 			address = "net.tcp://localhost:2500/Receiver";
-			host = new ServiceHost(typeof(AccountManagement));
-			host.AddServiceEndpoint(typeof(IAccountManagement), binding, address);
+			host = new ServiceHost(typeof(CheckingCSAS));
+			host.AddServiceEndpoint(typeof(ICheckingCSAS), binding, address);
 
 			///Custom validation mode enables creation of a custom validator - CustomCertificateValidator
 			host.Credentials.ClientCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.Custom;
@@ -57,7 +55,7 @@ namespace CredentialsStore
 			try
 			{
 				host.Open();
-				Console.WriteLine("WCFService is started.\nPress <enter> to stop ...");
+				Console.WriteLine("Credential Store is started.\nPress <enter> to stop ...");
 				Console.ReadLine();
 			}
 			catch (Exception e)
@@ -68,7 +66,7 @@ namespace CredentialsStore
 			finally
 			{
 				host.Close();
-			}*/
+			}
 		} 
     }   
 }

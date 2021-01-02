@@ -8,12 +8,10 @@ using System.ServiceModel;
 namespace Common
 {
     [ServiceContract]
-    public interface IAuthenticationService
+    public interface ICheckingCSAS
     {
         [OperationContract]
-        void Login(string username, string password);
+        bool CheckIfAccExists(string username, string password);
 
-        [OperationContract]
-        void Logout(string username);
     }
 }

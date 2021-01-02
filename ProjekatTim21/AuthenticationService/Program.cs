@@ -26,29 +26,11 @@ namespace AuthenticationService
 
 			host.Open();
 
-			Console.WriteLine("Korisnik koji je pokrenuo servera :" + WindowsIdentity.GetCurrent().Name);
+			Console.WriteLine("Korisnik koji je pokrenuo server :" + WindowsIdentity.GetCurrent().Name);
 
 			Console.WriteLine("Servis je pokrenut.");
 
 			Console.ReadLine();
-
-			/*string srvCertCN = "wcfservice";
-
-			NetTcpBinding binding = new NetTcpBinding();
-			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
-
-			/// Use CertManager class to obtain the certificate based on the "srvCertCN" representing the expected service identity.
-			X509Certificate2 srvCert = PomocneFunkcije.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, srvCertCN);
-			EndpointAddress address = new EndpointAddress(new Uri("net.tcp://localhost:2500/Receiver"),
-									  new X509CertificateEndpointIdentity(srvCert));
-
-			using (WCFAuthenticationService proxy = new WCFAuthenticationService(binding, address))
-			{
-				/// 1. Communication test
-				proxy.TestCommunication();
-				Console.WriteLine("TestCommunication() finished. Press <enter> to continue ...");
-				Console.ReadLine();
-			}*/
 		}
     }
 }

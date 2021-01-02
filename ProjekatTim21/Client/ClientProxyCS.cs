@@ -118,17 +118,5 @@ namespace Client
                 return false;
             }
         }
-
-        public void TestCommunication()
-        {
-            try
-            {
-                factory.TestCommunication();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error: {0}", e.Message);
-            }
-        }
     }
 }

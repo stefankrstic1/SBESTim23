@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
@@ -9,23 +11,45 @@ namespace AuthenticationService
 {
     public class AuthenticationService : IAuthenticationService
     {
-        public static Dictionary<string, string> UserAccountsDB = new Dictionary<string, string>();
-
+        public static Dictionary<string, string> LoggedUserAccountsDB = new Dictionary<string, string>();
         public void Login(string username, string password)
-        {
-            if (!UserAccountsDB.ContainsKey(username))
+        {         
+            if (!LoggedUserAccountsDB.ContainsKey(username))
             {
-                UserAccountsDB.Add(username, username);
-            }
+                string srvCertCN = "wcfservice";
+
+                NetTcpBinding binding = new NetTcpBinding();
+                binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
+                X509Certificate2 srvCert = PomocneFunkcije.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, srvCertCN);
+                EndpointAddress address = new EndpointAddress(new Uri("net.tcp://localhost:2500/Receiver"),
+                                          new X509CertificateEndpointIdentity(srvCert));
+
+                using (WCFCheckingCSAS proxy = new WCFCheckingCSAS(binding, address))
+                {
+                    /// 1. Communication test
+                    proxy.CheckIfAccExists(username, password);
+
+                    Console.ReadLine();
+                }
+
+                LoggedUserAccountsDB.Add(username, username);
+            }          
             else
             {
-                Console.WriteLine($"Korisnik sa korisnickim imenom {username} vec postoji u bazi");
+                Console.WriteLine($"Korisnik sa korisnickim imenom {username} je vec ulogovan");
             }
         }
 
-        public void Logout()
+        public void Logout(string username)
         {
-            throw new NotImplementedException();
+            if (!LoggedUserAccountsDB.ContainsKey(username))
+            {
+                LoggedUserAccountsDB.Remove(username);
+            }
+            else
+            {
+                Console.WriteLine($"Korisnik sa korisnickim imenom {username} nije ulogovan");
+            }
         }
     }
 }

@@ -10,11 +10,11 @@ using Common;
 
 namespace AuthenticationService
 {
-    public class WCFAuthenticationService : ChannelFactory<IAccountManagement>, IAccountManagement, IDisposable
+    public class WCFCheckingCSAS : ChannelFactory<ICheckingCSAS>, ICheckingCSAS, IDisposable
     {
-        IAccountManagement factory;
+        ICheckingCSAS factory;
 
-        public WCFAuthenticationService(NetTcpBinding binding, EndpointAddress address) : base(binding, address)
+        public WCFCheckingCSAS(NetTcpBinding binding, EndpointAddress address) : base(binding, address)
         {
             string cltCertCN = PomocneFunkcije.ParseName(WindowsIdentity.GetCurrent().Name);
 
@@ -28,41 +28,25 @@ namespace AuthenticationService
             factory = this.CreateChannel();
         }
 
-        public void TestCommunication()
+        public bool CheckIfAccExists(string username, string password)
         {
             try
             {
-                factory.TestCommunication();
+                bool existst = factory.CheckIfAccExists(username, password);
+                if (existst)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine("[TestCommunication] ERROR = {0}", e.Message);
+                return false;
             }
-        }
-
-        public void CreateAccount(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DeleteAccount(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DisableAccount(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool EnableAccount(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool LockAccount(string username)
-        {
-            throw new NotImplementedException();
         }
 
         public void Dispose()
