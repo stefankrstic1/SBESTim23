@@ -1,0 +1,4 @@
+ADMIN;srdjan;bfcX++36cvYV3gXb8nuJdw==;0;true
+KLIJENT;kerovi;NoCjF7NUPL+Hy6rbVur3vA==;0;true
+
+
