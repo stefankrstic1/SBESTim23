@@ -37,3 +37,13 @@ C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Client\obj\Debug\Client.csp
 C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Client\obj\Debug\Client.csproj.CopyComplete
 C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Client\obj\Debug\Client.exe
 C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Client\obj\Debug\Client.pdb
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\bin\Debug\Client.exe.config
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\bin\Debug\Client.exe
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\bin\Debug\Client.pdb
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\bin\Debug\Common.dll
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\bin\Debug\Common.pdb
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.exe
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.pdb

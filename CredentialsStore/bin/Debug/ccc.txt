@@ -1,4 +1,7 @@
-ADMIN;srdjan;bfcX++36cvYV3gXb8nuJdw==;0;true
-KLIJENT;kerovi;NoCjF7NUPL+Hy6rbVur3vA==;0;true
-
-
+ADMIN;srdjan;bfcX++36cvYV3gXb8nuJdw==;0;False
+KLIJENT;kerovi;NoCjF7NUPL+Hy6rbVur3vA==;1;True
+KLIJENT;krzdaggg;bfcX++36cvYV3gXb8nuJdw==;1;True
+KLIJENT;srdjanluk;g892u+6kscwE+R11zOt0XA==;0;true
+KLIJENT;lepi;ShHpM8VTCKBGrsrWRBHFMg==;0;true
+KLIJENT;kristijan;VLOJtcl7GRPv4HjLubYrpA==;0;true
+KLIJENT;miljana;TpzpD6qzoPikM4dxx2UPkQ==;0;true

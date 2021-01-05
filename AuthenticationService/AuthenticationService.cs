@@ -27,12 +27,19 @@ namespace AuthenticationService
                 using (WCFCheckingCSAS proxy = new WCFCheckingCSAS(binding, address))
                 {
                     /// 1. Communication test
-                    proxy.CheckIfAccExists(username, password);
-
-                    Console.ReadLine();
+                    
+                   bool a = proxy.CheckIfAccExists(username, password);
+                        if(a)
+                    {
+                        Console.WriteLine("Ulogovan");
+                        LoggedUserAccountsDB.Add(username, username);
+                    }
+                        else
+                    {
+                        Console.WriteLine("Nije ulogovan jer nema kor. ime u bazi");
+                    }
                 }
-
-                LoggedUserAccountsDB.Add(username, username);
+            
             }          
             else
             {
@@ -42,9 +49,10 @@ namespace AuthenticationService
 
         public void Logout(string username)
         {
-            if (!LoggedUserAccountsDB.ContainsKey(username))
+            if (LoggedUserAccountsDB.ContainsKey(username))
             {
                 LoggedUserAccountsDB.Remove(username);
+                Console.WriteLine($"Korisnik sa korisnickim imenom {username} je izlogovan.");
             }
             else
             {

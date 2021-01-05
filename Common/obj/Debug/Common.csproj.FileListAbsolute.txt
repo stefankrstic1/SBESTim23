@@ -27,3 +27,8 @@ C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Common\bin\Debug\Common.pdb
 C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Common\obj\Debug\Common.csprojAssemblyReference.cache
 C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Common\obj\Debug\Common.dll
 C:\Users\ACER E5\Desktop\sbes_projekat\ProjekatTim21\Common\obj\Debug\Common.pdb
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Common\bin\Debug\Common.dll
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Common\bin\Debug\Common.pdb
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Common\obj\Debug\Common.dll
+C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Common\obj\Debug\Common.pdb
