@@ -52,11 +52,11 @@ namespace Common
                     titula = Enum.Titula.KLIJENT;
                 }
 
-                if (tokens[4].Equals("true"))
+                if (tokens[4].Equals("True"))
                 {
                     isEnabled = true;
                 }
-                else if (tokens[4].Equals("false"))
+                else if (tokens[4].Equals("False"))
                 {
                     isEnabled = false;
                 }
@@ -75,7 +75,7 @@ namespace Common
         {
             using (StreamWriter writetext = new StreamWriter("ccc.txt", true))
             {
-                writetext.WriteLine(titula + ";" + username + ";" + password + ";" + "0"+ ";" + "true");
+                writetext.WriteLine(titula + ";" + username + ";" + password + ";" + "0"+ ";" + "True");
                 writetext.Close();
             }
         }
@@ -100,6 +100,8 @@ namespace Common
             sw.Close();
             stream.Close();
         }
+
+       
 
         public static void UpdateAccount(string username, int number)
         {
@@ -147,6 +149,17 @@ namespace Common
                     if (user.Username.Equals(u.Username))
                     {
                         user.IsEnabled = false;
+                    }
+                }
+            }
+            else if (number.Equals(4))
+            {
+                //Unlock
+                foreach (User user in users)
+                {
+                    if (user.Username.Equals(u.Username))
+                    {
+                        user.Locked = false;
                     }
                 }
             }

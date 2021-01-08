@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 
 namespace Client
 {
@@ -27,6 +27,8 @@ namespace Client
             string username = "";
             string password = "";
             string ulogovan = "";
+            bool logged = false;
+            DateTime vremeLogovanja = new DateTime();
 
             bool isAdmin = Common.PomocneFunkcije.CheckUserGroup(windowsIdentity);
             string address = "";
@@ -39,17 +41,11 @@ namespace Client
 
                 using (ClientProxy proxy = new ClientProxy(binding, endpointAddress))
                 {
-                   /* proxy.Login("ime", "sifra");
-                    Console.ReadLine();
-                    proxy.Logout("ime");
-                    Console.ReadLine(); */
-
 
                     while (true)
                     {
                         ispisiUserMenu();
                         int izbor = Convert.ToInt32(Console.ReadLine());
-
 
                         switch (izbor)
                         {
@@ -59,11 +55,30 @@ namespace Client
                                 Console.WriteLine("Upisi password za logovanje: ");
                                 password = Console.ReadLine();                           
                                 proxy.Login(username, password);
+                                vremeLogovanja = DateTime.Now;
+
+                                /*
+                                while(DateTime.Now.Ticks - vremeLogovanja.Ticks > 15)
+                                {
+                                    
+                                    
+
+                                    if(IsAnyKeyPressed())
+                                    {
+                                        vremeLogovanja = DateTime.Now;
+                                    }
+                                    else
+                                    {
+                                        proxy.Logout(username);
+                                    }
+                                   
+                                }
+
+                                */
                                 break;
                             case 2:
                                 proxy.Logout(username);
-                                break;
-                            
+                                break;                            
                         }
                     }
 
@@ -136,6 +151,21 @@ namespace Client
 
 
         }
+
+        public static bool IsAnyKeyPressed()
+        {
+            var allPossibleKeys = Enum.GetValues(typeof(Key));
+            bool results = false;
+            foreach (var currentKey in allPossibleKeys)
+            {
+                Key key = (Key)currentKey;
+                if (key != Key.None)
+                    if (Keyboard.IsKeyDown((Key)currentKey)) { results = true; break; }
+            }
+            return results;
+        }
+
+
         public static void ispisiMenu()
         {
             Console.WriteLine("\nMeni za odabir:\n");          

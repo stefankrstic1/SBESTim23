@@ -16,7 +16,8 @@ namespace AuthenticationService
         {         
             if (!LoggedUserAccountsDB.ContainsKey(username))
             {
-                string srvCertCN = "wcfservice";
+                string srvCertCN = "WCFSERVIS";
+               
 
                 NetTcpBinding binding = new NetTcpBinding();
                 binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
@@ -33,10 +34,12 @@ namespace AuthenticationService
                     {
                         Console.WriteLine("Ulogovan");
                         LoggedUserAccountsDB.Add(username, username);
+
                     }
                         else
                     {
                         Console.WriteLine("Nije ulogovan jer nema kor. ime u bazi");
+                      
                     }
                 }
             
