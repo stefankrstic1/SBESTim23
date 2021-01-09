@@ -6,3 +6,7 @@ KLIJENT;lepi;ShHpM8VTCKBGrsrWRBHFMg==;0;True
 KLIJENT;kristijan;VLOJtcl7GRPv4HjLubYrpA==;0;True
 KLIJENT;miljana;TpzpD6qzoPikM4dxx2UPkQ==;0;True
 KLIJENT;neca;YDI1yFJmrTiILEk315qTpA==;0;True
+KLIJENT;srdjan;0TAgfmFYBcsX4mcWRqCsWA==;0;True
+KLIJENT;ime;0TAgfmFYBcsX4mcWRqCsWA==;0;True
+KLIJENT;novi;BmoVj10c5AWS6q8wFHk5QA==;0;True
+KLIJENT;nalog;c+cOYDL3MnTyjR+AaFuzag==;0;True

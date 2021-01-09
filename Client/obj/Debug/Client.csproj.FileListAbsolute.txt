@@ -47,3 +47,13 @@ C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.cspr
 C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.csproj.CopyComplete
 C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.exe
 C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\Client\obj\Debug\Client.pdb
+C:\Users\S\Desktop\SBESTim23\Client\bin\Debug\Client.exe.config
+C:\Users\S\Desktop\SBESTim23\Client\bin\Debug\Client.exe
+C:\Users\S\Desktop\SBESTim23\Client\bin\Debug\Client.pdb
+C:\Users\S\Desktop\SBESTim23\Client\bin\Debug\Common.dll
+C:\Users\S\Desktop\SBESTim23\Client\bin\Debug\Common.pdb
+C:\Users\S\Desktop\SBESTim23\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\S\Desktop\SBESTim23\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\S\Desktop\SBESTim23\Client\obj\Debug\Client.csproj.CopyComplete
+C:\Users\S\Desktop\SBESTim23\Client\obj\Debug\Client.exe
+C:\Users\S\Desktop\SBESTim23\Client\obj\Debug\Client.pdb

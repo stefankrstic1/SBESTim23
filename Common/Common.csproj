@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AesCSAS.cs" />
     <Compile Include="ClientCertValidator.cs" />
+    <Compile Include="DigitalSignature.cs" />
     <Compile Include="Enum.cs" />
     <Compile Include="IAccountManagement.cs" />
     <Compile Include="IAuthenticationService.cs" />

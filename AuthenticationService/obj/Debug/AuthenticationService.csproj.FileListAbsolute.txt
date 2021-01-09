@@ -37,3 +37,13 @@ C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\AuthenticationService\obj\De
 C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.csproj.CopyComplete
 C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.exe
 C:\Users\zivko\OneDrive\Desktop\projasdrs\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.pdb
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\bin\Debug\AuthenticationService.exe.config
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\bin\Debug\AuthenticationService.exe
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\bin\Debug\AuthenticationService.pdb
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\bin\Debug\Common.dll
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\bin\Debug\Common.pdb
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.csprojAssemblyReference.cache
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.csproj.CoreCompileInputs.cache
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.csproj.CopyComplete
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.exe
+C:\Users\S\Desktop\SBESTim23\AuthenticationService\obj\Debug\AuthenticationService.pdb

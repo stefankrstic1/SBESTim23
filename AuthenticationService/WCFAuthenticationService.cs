@@ -28,11 +28,11 @@ namespace AuthenticationService
             factory = this.CreateChannel();
         }
 
-        public bool CheckIfAccExists(string username, string password)
+        public bool CheckIfAccExists(string message, byte[] sign)
         {
             try
             {
-                bool existst = factory.CheckIfAccExists(username, password);
+                bool existst = factory.CheckIfAccExists(message, sign);
                 if (existst)
                 {
                     return true;
@@ -48,6 +48,19 @@ namespace AuthenticationService
                 return false;
             }
         }
+
+        /*public bool SendMessage(string message, byte[] sign)
+        {
+            try
+            {
+                return factory.SendMessage(message, sign);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[SendMessage] ERROR = {0}", e.Message);
+                return false;
+            }
+        }*/
 
         public void Dispose()
         {

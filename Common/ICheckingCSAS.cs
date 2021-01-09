@@ -11,7 +11,9 @@ namespace Common
     public interface ICheckingCSAS
     {
         [OperationContract]
-        bool CheckIfAccExists(string username, string password);
+        bool CheckIfAccExists(string message, byte[] sign);
 
+        //[OperationContract]
+        //bool SendMessage(string message, byte[] sign);
     }
 }
