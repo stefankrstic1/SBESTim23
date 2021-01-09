@@ -49,11 +49,11 @@ namespace Client
 
                         switch (izbor)
                         {
-                            case 1:                                
+                            case 1:
                                 Console.WriteLine("Upisi username za logovanje: ");
                                 username = Console.ReadLine();
                                 Console.WriteLine("Upisi password za logovanje: ");
-                                password = Console.ReadLine();                           
+                                password = Console.ReadLine();
                                 proxy.Login(username, password);
                                 vremeLogovanja = DateTime.Now;
 
@@ -78,7 +78,7 @@ namespace Client
                                 break;
                             case 2:
                                 proxy.Logout(username);
-                                break;                            
+                                break;
                         }
                     }
 
@@ -95,7 +95,7 @@ namespace Client
                     {
                         ispisiMenu();
                         int izbor = Convert.ToInt32(Console.ReadLine());
-                        
+
 
                         switch (izbor)
                         {
@@ -104,8 +104,10 @@ namespace Client
                                 username = Console.ReadLine();
                                 Console.WriteLine("Upisi password za kreiranje: ");
                                 password = Console.ReadLine();
-                                proxy.CreateAccount(username, password);
-                                Console.WriteLine("Kreirano.");
+                                if (proxy.CreateAccount(username, password))
+                                    Console.WriteLine("Kreirano.");
+                                else
+                                    Console.WriteLine("Korisnicko ime vec postoji");
                                 break;
                             case 2:
                                 Console.WriteLine("Upisi username koji zelis obrisati: ");
@@ -135,8 +137,8 @@ namespace Client
                     }
                 }
             }
-            
-            
+
+
 
             /*//string address = "net.tcp://localhost:1000/"
 
@@ -168,7 +170,7 @@ namespace Client
 
         public static void ispisiMenu()
         {
-            Console.WriteLine("\nMeni za odabir:\n");          
+            Console.WriteLine("\nMeni za odabir:\n");
             Console.WriteLine("1) Create Account");
             Console.WriteLine("2) Delete Account");
             Console.WriteLine("3) Lock Account");

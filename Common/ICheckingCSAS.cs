@@ -13,6 +13,8 @@ namespace Common
         [OperationContract]
         bool CheckIfAccExists(string message, byte[] sign);
 
+        [OperationContract]
+        string CriptoKey(string username); 
         //[OperationContract]
         //bool SendMessage(string message, byte[] sign);
     }

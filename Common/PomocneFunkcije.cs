@@ -71,13 +71,22 @@ namespace Common
             return korisnici;
         }
 
-        public static void Write(string username, string password, string titula)
+        public static bool Write(string username, string password, string titula)
         {
+            List<User> korisnici = ReadUsers();
+            foreach (User item in korisnici)
+            {
+                if(item.Username == username)
+                {
+                    return false;
+                }
+            }
             using (StreamWriter writetext = new StreamWriter("ccc.txt", true))
             {
                 writetext.WriteLine(titula + ";" + username + ";" + password + ";" + "0"+ ";" + "True");
                 writetext.Close();
             }
+            return true;
         }
 
         public static void DeleteAccount(string username)

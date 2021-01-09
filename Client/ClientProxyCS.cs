@@ -23,16 +23,17 @@ namespace Client
             //Credentials.Windows.AllowNtlm = false;
         }
 
-        public void CreateAccount(string username, string password)
+        public bool CreateAccount(string username, string password)
         {
             try
             {
-                factory.CreateAccount(username, password);
+                return factory.CreateAccount(username, password);
             }
             catch(Exception e)
             {
                 Console.WriteLine("Error: {0}", e.Message);
             }
+            return false;
         }
 
         public bool DeleteAccount(string username)

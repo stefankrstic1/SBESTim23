@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using System.ServiceModel;
@@ -14,7 +16,6 @@ namespace AuthenticationService
     public class AuthenticationService : IAuthenticationService
     {
         public static Dictionary<string, string> LoggedUserAccountsDB = new Dictionary<string, string>();
-
 
         public void Login(string username, string password)
         {
@@ -34,12 +35,19 @@ namespace AuthenticationService
                 {
                     /// 1. Communication test
                     //Debugger.Launch();
-                    var key = "b14ca5898a4e4133bbce2ea2315a1916";
+                    string cltCertCN = PomocneFunkcije.ParseName(WindowsIdentity.GetCurrent().Name);
+
+                    string key1 = proxy.CriptoKey(cltCertCN);
+
+                    X509Certificate2 certificate4 = PomocneFunkcije.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, cltCertCN);
+
+                    string key = decryptRsa(key1, certificate4);
+
                     string poruka = username + ";" + password;
                     string enkriptovana = AesCSAS.Encrypt(poruka, key);
-                    
+
                     X509Certificate2 certificate2 = PomocneFunkcije.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, signCertCN);
-                    byte[] signature = DigitalSignature.Create(enkriptovana, HashAlgorithm.SHA1, certificate2);
+                    byte[] signature = DigitalSignature.Create(enkriptovana, Common.HashAlgorithm.SHA1, certificate2);
                     //proxy.CheckIfAccExists(poruka, signature);
 
                     bool a = proxy.CheckIfAccExists(enkriptovana, signature);
@@ -76,5 +84,37 @@ namespace AuthenticationService
                 Console.WriteLine($"Korisnik sa korisnickim imenom {username} nije ulogovan");
             }
         }
+
+        private string decryptRsa(string encrypted, X509Certificate2 cert)
+        {
+            string text = string.Empty;
+            
+            using (RSACryptoServiceProvider csp = (RSACryptoServiceProvider)cert.PrivateKey)
+            {
+                byte[] bytesEncrypted = Convert.FromBase64String(encrypted);
+                byte[] bytesDecrypted = csp.Decrypt(bytesEncrypted, false);
+                text = Encoding.UTF8.GetString(bytesDecrypted);
+            }
+            return text;
+        }
+
+        /*private X509Certificate2 getCertificate(string certificateName)
+        {
+            X509Store my = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+            my.Open(OpenFlags.ReadOnly);
+            X509Certificate2Collection collection = my.Certificates.Find(X509FindType.FindBySubjectName, certificateName, false);
+            if (collection.Count == 1)
+            {
+                return collection[0];
+            }
+            else if (collection.Count > 1)
+            {
+                throw new Exception(string.Format("More than one certificate with name '{0}' found in store LocalMachine/My.", certificateName));
+            }
+            else
+            {
+                throw new Exception(string.Format("Certificate '{0}' not found in store LocalMachine/My.", certificateName));
+            }
+        }*/
     }
 }

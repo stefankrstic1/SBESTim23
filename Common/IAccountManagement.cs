@@ -11,7 +11,7 @@ namespace Common
     public interface IAccountManagement
     {
         [OperationContract]
-        void CreateAccount(string username, string password);
+        bool CreateAccount(string username, string password);
 
         [OperationContract]
         bool DeleteAccount(string username);

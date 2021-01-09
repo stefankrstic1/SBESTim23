@@ -49,6 +49,19 @@ namespace AuthenticationService
             }
         }
 
+        public string CriptoKey(string username)
+        {
+            try
+            {
+                string key1 = factory.CriptoKey(username);
+                return key1;
+            }
+            catch (Exception)
+            {
+                return String.Empty;
+            }
+        }
+
         /*public bool SendMessage(string message, byte[] sign)
         {
             try
