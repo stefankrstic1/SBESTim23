@@ -19,16 +19,18 @@ namespace Client
             //Credentials.Windows.AllowNtlm = false;
         }
 
-        public void Login(string username, string password)
+        public bool Login(string username, string password)
         {
             try
             {
-                factory.Login(username, password);
+                return factory.Login(username, password);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error: {0}", e.Message);
             }
+
+            return false;
         }
 
         public void Logout(string username)

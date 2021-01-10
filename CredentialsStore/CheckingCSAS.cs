@@ -57,10 +57,11 @@ namespace CredentialsStore
 
             vrijemeLokdauna.TryGetValue(username, out var vrijeme);
 
+            TimeSpan vreme = TimeSpan.FromSeconds(20);
 
             foreach (User u in korisnici)
             {
-                if (u.Username == username && u.Password == enkriptovanPassword && DateTime.Now.Ticks - vrijeme.Ticks > 20)
+                if (u.Username == username && u.Password == enkriptovanPassword && DateTime.UtcNow - vrijeme > vreme)
                 {
                     PomocneFunkcije.UpdateAccount(username, 4);
                     u.Locked = false;
@@ -73,7 +74,7 @@ namespace CredentialsStore
 
             }
 
-
+           
             if (brojPokusaja.ContainsKey(username))
             {
                 brojPokusaja.TryGetValue(username, out var brojac);
@@ -81,8 +82,10 @@ namespace CredentialsStore
 
                 if (brojac == 5)
                 {
+                    Debugger.Launch();
                     PomocneFunkcije.UpdateAccount(username, 1);
-                    vrijemeLokdauna.Add(username, DateTime.Now);
+                    vrijemeLokdauna.Add(username, DateTime.UtcNow);
+                    Console.WriteLine($"Profil {username} je zakljucan na 20 sekundi");
                 }
             }
             else
@@ -99,7 +102,11 @@ namespace CredentialsStore
         {
             X509Certificate2 srvCert = PomocneFunkcije.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, username);
             string key1 = AesCSAS.GenerateKey();
-            kljucevi.Add(username, key1);
+            if (kljucevi.ContainsKey(username))
+            {
+                kljucevi.Remove(username);
+            }
+            kljucevi.Add(username, key1);        
             return EncryptRsa(key1, srvCert);
         }
 

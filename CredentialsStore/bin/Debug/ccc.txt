@@ -15,7 +15,6 @@ KLIJENT;novin;mYdB5EMuJAzGovylO9tx/A==;0;True
 KLIJENT;zile;nyAGlJpd5lRGVuSKtEEf6g==;0;True
 KLIJENT;krspak123;uvuS2oHhVNWL3SkQMAlWdQ==;0;True
 KLIJENT;123456789;SPL8xWA2N9YJdoo0jb2Odg==;0;True
-KLIJENT;zile;nyAGlJpd5lRGVuSKtEEf6g==;0;True
-KLIJENT;aa;lb+Zehj5ffB7kH4PWZoGOQ==;0;True
-KLIJENT;ss;HPNJIIokyvb/AsPvdXR41g==;0;True
+KLIJENT;aa;lb+Zehj5ffB7kH4PWZoGOQ==;1;True
 KLIJENT;mrkela;9BLcBuHzin9hehQqAyb78g==;0;True
+KLIJENT;majmun;ff7TuiqnSmdm+CjBlH4xGw==;0;True

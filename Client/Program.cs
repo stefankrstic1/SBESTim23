@@ -30,9 +30,9 @@ namespace Client
             bool logged = false;
             DateTime vremeLogovanja = new DateTime();
 
-            bool isAdmin = Common.PomocneFunkcije.CheckUserGroup(windowsIdentity);
+            string isAdmin = Common.PomocneFunkcije.CheckUserGroup(windowsIdentity);
             string address = "";
-            if (!isAdmin)
+            if (isAdmin == "AccountUsers")
             {
                 address = "net.tcp://localhost:1234/AuthenticationService";
 
@@ -45,7 +45,14 @@ namespace Client
                     while (true)
                     {
                         ispisiUserMenu();
-                        int izbor = Convert.ToInt32(Console.ReadLine());
+                        int izbor = 0;
+                        string broj = "";
+                        do
+                        {
+                            broj = Console.ReadLine();
+                           
+                        } while (broj != "1");
+                        izbor = Convert.ToInt32(broj);
 
                         switch (izbor)
                         {
@@ -54,37 +61,21 @@ namespace Client
                                 username = Console.ReadLine();
                                 Console.WriteLine("Upisi password za logovanje: ");
                                 password = Console.ReadLine();
-                                proxy.Login(username, password);
-                                vremeLogovanja = DateTime.Now;
-
-                                /*
-                                while(DateTime.Now.Ticks - vremeLogovanja.Ticks > 15)
+                                if(proxy.Login(username, password))
                                 {
-                                    
-                                    
-
-                                    if(IsAnyKeyPressed())
-                                    {
-                                        vremeLogovanja = DateTime.Now;
-                                    }
-                                    else
-                                    {
-                                        proxy.Logout(username);
-                                    }
-                                   
-                                }
-
-                                */
-                                break;
-                            case 2:
-                                proxy.Logout(username);
+                                    Console.Clear();
+                                    Console.WriteLine("Ulogovani ste");
+                                    Console.WriteLine("Pritisnite enter da bi se izlogovali");
+                                    Console.Read();
+                                    proxy.Logout(username);
+                                }                             
                                 break;
                         }
                     }
 
                 }
             }
-            else
+            else if(isAdmin == "AccountAdmins")
             {
                 address = "net.tcp://localhost:1888/CredentialsStore";
                 EndpointAddress endpointAddress = new EndpointAddress(new Uri(address),
@@ -111,47 +102,63 @@ namespace Client
                                 break;
                             case 2:
                                 Console.WriteLine("Upisi username koji zelis obrisati: ");
-                                username = Console.ReadLine();
-                                proxy.DeleteAccount(username);
-                                Console.WriteLine("Obrisano.");
+                                username = Console.ReadLine();                         
+                                if (proxy.DeleteAccount(username))
+                                {
+                                    Console.WriteLine("Obrisano");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Korisnicko ime ne postoji u bazi");
+                                }
                                 break;
                             case 3:
                                 Console.WriteLine("Upisi username ciji account zelis da zakljucas: ");
-                                username = Console.ReadLine();
-                                proxy.LockAccount(username);
-                                Console.WriteLine("Zakljucano.");
+                                username = Console.ReadLine();                              
+                                if (proxy.LockAccount(username))
+                                {
+                                    Console.WriteLine("Zakljucano.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Korisnicko ime ne postoji u bazi");
+                                }
                                 break;
                             case 4:
                                 Console.WriteLine("Upisi username ciji account zelis da omogucis: ");
                                 username = Console.ReadLine();
-                                proxy.EnableAccount(username);
-                                Console.WriteLine("Omoguceno.");
+                                if (proxy.EnableAccount(username))
+                                {
+
+                                    Console.WriteLine("Omoguceno.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Korisnicko ime ne postoji u bazi");
+                                }
                                 break;
                             case 5:
                                 Console.WriteLine("Upisi username ciji account zelis da onemogucis: ");
                                 username = Console.ReadLine();
-                                proxy.DisableAccount(username);
-                                Console.WriteLine("Onemogucis.");
+                                if (proxy.DisableAccount(username))
+                                {
+                                    Console.WriteLine("Onemogucis.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Korisnicko ime ne postoji u bazi");
+                                }
                                 break;
                         }
                     }
                 }
             }
+            else
+            {
+                Console.WriteLine("Prijavljeni korisnik ne pripada nijednoj grupi");
+            }
 
-
-
-            /*//string address = "net.tcp://localhost:1000/"
-
-            //ADMIN: USER(srdjan), SIFRA(123)
-            string username;
-            string password;
-
-            Console.WriteLine("Unesi username:");
-            username = Console.ReadLine();
-            Console.WriteLine("Unesi password:");
-            password = Console.ReadLine();*/
-
-
+            Console.Read();
         }
 
         public static bool IsAnyKeyPressed()
@@ -185,7 +192,6 @@ namespace Client
         {
             Console.WriteLine("\nMeni za odabir:\n");
             Console.WriteLine("1) Login: ");
-            Console.WriteLine("2) Logout: ");
             Console.Write("\r\nIzaberi opciju: ");
         }
     }

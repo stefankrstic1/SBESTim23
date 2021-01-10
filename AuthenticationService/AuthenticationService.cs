@@ -17,10 +17,11 @@ namespace AuthenticationService
     {
         public static Dictionary<string, string> LoggedUserAccountsDB = new Dictionary<string, string>();
 
-        public void Login(string username, string password)
+        public bool Login(string username, string password)
         {
             if (!LoggedUserAccountsDB.ContainsKey(username))
             {
+                
                 string srvCertCN = "wcfservice";
 
                 string signCertCN = PomocneFunkcije.ParseName(WindowsIdentity.GetCurrent().Name) + "_sign";
@@ -56,12 +57,13 @@ namespace AuthenticationService
                     {
                         Console.WriteLine("Ulogovan");
                         LoggedUserAccountsDB.Add(username, username);
+                        return true;
 
                     }
                     else
                     {
                         Console.WriteLine("Nije ulogovan jer nema kor. ime u bazi");
-
+                        return false;
                     }
                 }
 
@@ -69,6 +71,7 @@ namespace AuthenticationService
             else
             {
                 Console.WriteLine($"Korisnik sa korisnickim imenom {username} je vec ulogovan");
+                return false;
             }
         }
 

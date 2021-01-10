@@ -290,21 +290,25 @@ namespace Common
             }
         }
 
-        public static bool CheckUserGroup(WindowsIdentity windowsIdentity)
+        public static string CheckUserGroup(WindowsIdentity windowsIdentity)
         {
-            foreach(IdentityReference group in windowsIdentity.Groups)
+            foreach (IdentityReference group in windowsIdentity.Groups)
             {
                 SecurityIdentifier sid = (SecurityIdentifier)group.Translate(typeof(SecurityIdentifier));
                 var name = sid.Translate(typeof(NTAccount)).ToString();
                 name = ParseName(name);
 
-                if(name == "AccountAdmins")
+                if (name == "AccountAdmins")
                 {
-                    return true;
+                    return "AccountAdmins";
+                }
+                else if (name == "AccountUsers")
+                {
+                    return "AccountUsers";
                 }
             }
 
-            return false;
+            return String.Empty;
         }
 
     }
